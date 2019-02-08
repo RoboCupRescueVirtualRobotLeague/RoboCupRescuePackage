@@ -7,6 +7,7 @@ A package adding USARSim interface to Gazebo
 * Software :  
   Recommend : Ubuntu 14, Gazebo 5 (If your ROS version is indigo)  
  (Maybe OK  : Ubuntu 12, Gazebo 4 (If your ROS version is hydro)  
+ (Maybe OK  : Ubuntu 16, Gazebo 8 (If your ROS version is kinetic)  
 
 ### Software Environment Installation Tips  
 This package requires Gazebo 5.  
@@ -195,4 +196,5 @@ In the case, at first, you have to remove the installed Gazebo 2, and then, you 
                    but you can see image files.  
     * 11/ 3/2015 : Adding a model which have 2 cameras, 1 hokuyo.  
                    The model's name is "pioneer3at_with_sensors".  
-    * 11/ 3/2015 : Changed filename  
+    * 11/ 3/2015 : Changed filename.  
+    *  8/ 2/2019 : Some source files were changed to cover Gazebo 8.  

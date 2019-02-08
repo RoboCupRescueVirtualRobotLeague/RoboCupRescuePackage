@@ -138,11 +138,11 @@ void SkidSteerDrivePlugin::OnVelMsg(ConstPosePtr &_msg)
   //       << msgs::Convert(msg->orientation()).GetAsEuler().z << std::endl;
 
   vel_lin = _msg->position().x() / this->wheelRadius;
-#if(GAZEBO_MAJOR_VERSION == 5)
+#if(GAZEBO_MAJOR_VERSION == 5 || GAZEBO_MAJOR_VERSION == 6)
   vel_rot = -1 * msgs::Convert(_msg->orientation()).GetAsEuler().z
                * (this->wheelSeparation / this->wheelRadius);
 #endif
-#if(GAZEBO_MAJOR_VERSION == 7)
+#if(GAZEBO_MAJOR_VERSION >= 7)
   vel_rot = -1 * msgs::ConvertIgn(_msg->orientation()).Euler().Z()
                * (this->wheelSeparation / this->wheelRadius);
 #endif

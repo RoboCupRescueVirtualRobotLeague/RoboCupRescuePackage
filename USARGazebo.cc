@@ -1116,11 +1116,11 @@ struct UC_INIT
 /*msg.set_edit_name is not working in Gazebo5.
     msg.set_edit_name(_parent.own_name); */
     // Pose to initialize the model to
-#if(GAZEBO_MAJOR_VERSION == 5)
+#if(GAZEBO_MAJOR_VERSION == 5 || GAZEBO_MAJOR_VERSION == 6)
     gazebo::msgs::Set(msg.mutable_pose()
      ,gazebo::math::Pose(_parent.spawn_location,_parent.spawn_direction));
 #endif
-#if(GAZEBO_MAJOR_VERSION == 7)
+#if(GAZEBO_MAJOR_VERSION >= 7)
     ignition::math::Vector3d    locIgn(_parent.spawn_location.x,
                                     _parent.spawn_location.y,
                                     _parent.spawn_location.z);
@@ -1357,10 +1357,10 @@ struct UC_DRIVE
         return;
     }
     // Set the message
-#if(GAZEBO_MAJOR_VERSION == 5)
+#if(GAZEBO_MAJOR_VERSION == 5 || GAZEBO_MAJOR_VERSION == 6)
     gazebo::math::Pose pose(_speed, 0, 0, 0, 0, _turn);
 #endif
-#if(GAZEBO_MAJOR_VERSION == 7)
+#if(GAZEBO_MAJOR_VERSION >= 7)
     ignition::math::Pose3d pose(_speed, 0, 0, 0, 0, _turn);
 #endif
     gazebo::msgs::Pose msg;
